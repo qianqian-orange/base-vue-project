@@ -1,6 +1,5 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
@@ -39,15 +38,15 @@ module.exports = {
         include: resolvePath('../src'),
       },
       {
-        test: /\.(c|sc)ss$/,
+        test: /\.(c|le)ss$/,
         use: [
           isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
           {
-            loader: 'sass-loader',
+            loader: 'less-loader',
             options: {
-              // prependData: '@import "~@/scss/index.scss";',
+              prependData: '@import "~@/less/index.less";',
             },
           },
         ],

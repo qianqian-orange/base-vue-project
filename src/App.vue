@@ -19,6 +19,8 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="less" scoped>
+.title {
+  color: @themeColor;
+}
 </style>
